@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: subscriptionservice-deployment
+  namespace: default
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      service: web
+  template:
+    metadata:
+      labels:
+        service: web
+    spec:
+      containers:
+      - name: subscription-service-site
+        image: subs-service
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: subscription-service
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30001

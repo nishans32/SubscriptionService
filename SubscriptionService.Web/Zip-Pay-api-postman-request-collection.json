@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "1f3f24eb-b5bf-4466-b795-74872a2bccb6",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/User/list",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"User",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/User/fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"User",
+								"fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test User\",\r\n  \"email\": \"test.user@email.com\",\r\n  \"salary\": 1220,\r\n  \"expenses\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/User",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"User"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User accounts",
+			"item": [
+				{
+					"name": "Get User Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/user/fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf/UserAccount",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"user",
+								"fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf",
+								"UserAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf\",\r\n  \"accountType\": 1,\r\n  \"loanAmount\": 12,\r\n  \"interestRate\": 10,\r\n  \"repaymentAmount\": 220,\r\n  \"repaymentFrequency\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/user/fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf/UserAccount",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"user",
+								"fe9ec073-70b6-41a6-a44a-dd3ef0ab45cf",
+								"UserAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

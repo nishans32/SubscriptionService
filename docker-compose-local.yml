@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  postgres:
+    container_name: 'subscription-postgres-container'
+    image: postgres:12
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=B3L13f!
+      - POSTGRES_DB=subscriptions
+    volumes: 
+      # copy the sql script to create tables
+      - ./scripts/grant_permissions.sql:/docker-entrypoint-initdb.d/grant_permissions.sql
+      - ./scripts/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql

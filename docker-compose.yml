@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  # web:
+    # container_name: 'zip-pay-users-web-container'
+    # image: 'zip-pay-users-image'
+    # build:
+      # context: .
+      # dockerfile: Dockerfile
+    # ports:
+     # - "5000:80"
+    # depends_on:
+     # - "postgres"
+    # networks:
+      # - zip-pay-users-network
+
+  postgres:
+    container_name: 'subscription-service-postgres-container'
+    image: postgres:12
+    ports:
+      - 192.168.0.141:5432:5432
+    environment:
+      - POSTGRES_PASSWORD=Test123
+      - POSTGRES_DB=subscriptions
+    volumes: 
+      # copy the sql script to create tables
+      - ./scripts/grant_permissions.sql:/docker-entrypoint-initdb.d/grant_permissions.sql
+      - ./scripts/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    # networks:
+      # - subscription-service
+      
+# networks:
+  # subscription-service:
+    # driver: bridge
